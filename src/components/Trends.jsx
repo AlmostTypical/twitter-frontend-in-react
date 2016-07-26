@@ -4,7 +4,7 @@ const axios = require(('axios'));
 
 const Trend = React.createClass({
   getInitialState: function () {
-    console.log('initial')
+    console.log('initial');
     return {
       loaded: false
     }
