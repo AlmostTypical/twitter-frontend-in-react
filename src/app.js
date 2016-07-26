@@ -12,39 +12,11 @@ const SideFoot = require('./components/SideFoot');
 const App = React.createClass({
   getInitialState: function () {
     return ({
+      loading: true,
       currentUser: 'northcoders'
     })
   },
-  componentDidMount: function () {
-    this.fetchTweets();
-  },
-  fetchTweets: function () {
-    let self = this;
-    axios.get('https://protected-oasis-31937.herokuapp.com/tweets')
-      .then(function (response) {
-         let sorted = self.collectData(response);
-        self.setState({allUserInfo: sorted}, function () {
-          this.pullCurrentUserTweets(this.state.allUserInfo);
-        });
-      });
 
-  },
-  collectData: function (data) {
-    let sorted = data.data.map(function(userData) {
-      return userData;
-    });
-    return sorted;
-  },
-  pullCurrentUserTweets: function (allUserInfo) {
-    let self = this;
-    let currentUserInfo = allUserInfo.filter(function (user) {
-      if (user.handle === self.state.currentUser) {
-        return user;
-      }
-    })[0].tweets;
-    console.log(currentUserInfo);
-    this.setState({currentUserTweets: currentUserInfo});
-  },
   render: function () {
     let info;
     if (this.state.currentUserTweets !== undefined) {
@@ -57,7 +29,7 @@ const App = React.createClass({
         <NavBar/>
         <div className="columns">
           <div className="column is-one-quarter">
-            <ProfileCard info={info}/>
+            <ProfileCard user={this.state.currentUser}/>
             <TrendsDiv />
           </div>
           <div className="column is-half">
