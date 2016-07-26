@@ -5,3 +5,11 @@ body {
 .panel {
     padding: 1%;
 }
+
+.navGlyph{
+    margin-right:5px;
+}
+
+i.fa.fa-twitter {
+    color: #1da1f2;
+}

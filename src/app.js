@@ -2,7 +2,10 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const TrendsDiv = require('./components/TrendsDiv');
 const NavBar = require('./components/NavBar');
-const ProfileCard =  require('./components/ProfileCard')
+const ProfileCard =  require('./components/ProfileCard');
+const TimeLine = require('./components/Timeline');
+const WhoToFollow = require('./components/WhoToFollow');
+const SideFoot = require('./components/SideFoot');
 
 const App = React.createClass({
   render: function () {
@@ -16,9 +19,11 @@ const App = React.createClass({
             <TrendsDiv />
           </div>
           <div className="column is-half">
-
+            <TimeLine/>
           </div>
           <div className="column is-one-quarter">
+            <WhoToFollow/>
+            <SideFoot/>
 
           </div>
         </div>

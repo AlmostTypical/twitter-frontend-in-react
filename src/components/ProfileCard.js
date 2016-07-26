@@ -3,9 +3,11 @@ const React = require('react');
 const ProfileCard = React.createClass({
   render: function () {
    return(
-     <div className="profileCard">
+     <div className="profileCard panel">
 
-       <image></image>
+       <div className="panel-heading has-text-centered ">
+         <h2>Profile card</h2>
+       </div>
 
 
      </div>

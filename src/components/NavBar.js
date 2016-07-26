@@ -6,15 +6,24 @@ const NavBar = React.createClass({
       <div className="navBar">
         <nav className="nav">
           <div className="nav-left">
-            <h3>logo</h3>
+            <a className="nav-item" href="#">
+              <i className="navGlyph fa fa-home fa-2x"></i> Home
+            </a>
+            <a className="nav-item" href="#">
+              <i className="navGlyph fa fa-bolt fa-2x"></i> Moments
+            </a>
+            <a className="nav-item" href="#">
+              <i className="navGlyph fa fa-bell fa-2x"></i> Notifications
+            </a>
+            <a className="nav-item" href="#">
+              <i className="navGlyph fa fa-envelope fa-2x"></i> Messages
+            </a>
+
+
           </div>
 
           <div className="nav-center">
-            <a className="nav-item" href="#">
-      <span className="icon">
-        <i className="fa fa-github"></i>
-      </span>
-            </a>
+
             <a className="nav-item" href="#">
       <span className="icon">
         <i className="fa fa-twitter"></i>
@@ -29,30 +38,23 @@ const NavBar = React.createClass({
   </span>
 
           <div className="nav-right nav-menu">
-            <a className="nav-item" href="#">
-              Home
-            </a>
-            <a className="nav-item" href="#">
-              Documentation
-            </a>
-            <a className="nav-item" href="#">
-              Blog
-            </a>
+
+
+
+
+              <figure className=" nav-item image is-150x150">
+                <img src="http://placehold.it/32x32"/>
+              </figure>
+
 
             <span className="nav-item">
-      <a className="button">
-        <span className="icon">
-          <i className="fa fa-twitter"></i>
-        </span>
-        <span>Tweet</span>
-      </a>
-      <a className="button is-primary" href="#">
-        <span className="icon">
-          <i className="fa fa-download"></i>
-        </span>
-        <span>Download</span>
-      </a>
-    </span>
+              <a className="button">
+                <span className="icon">
+                  <i className="fa fa-twitter"></i>
+                </span>
+                <span>Tweet</span>
+              </a>
+            </span>
           </div>
         </nav>
       </div>
