@@ -2,7 +2,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const Trends = require('./Trends');
 
-const CommentBox = React.createClass({
+const TrendsDiv = React.createClass({
   render: function() {
     return (
       <div className="panel">
@@ -15,4 +15,4 @@ const CommentBox = React.createClass({
   }
 });
 
-module.exports = CommentBox;
+module.exports = TrendsDiv;
