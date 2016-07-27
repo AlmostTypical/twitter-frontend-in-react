@@ -51,7 +51,7 @@ const TimeLine = React.createClass({
       )
     }else{
       return(
-        <div className="profileCard panel">
+        <div className="profileCard ">
           <ul>
             {
               this.state.tweets.map(function (tweet ,index) {

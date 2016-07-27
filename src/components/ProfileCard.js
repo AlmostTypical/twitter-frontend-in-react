@@ -34,7 +34,7 @@ const ProfileCard = React.createClass({
       handle: info.screen_name,
     };
 
-    console.log(data)
+    console.log(data);
     this.setState({
       profileData: data,
       loading: false

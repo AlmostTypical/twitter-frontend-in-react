@@ -2,6 +2,25 @@ const React = require('react');
 const relativeDate = require('relative-date');
 
 const TweetCard = React.createClass({
+  processImages: function (tweetData) {
+    if(tweetData.entities.media !== undefined){
+      let imageUrl  = tweetData.entities.media[0].media_url;
+
+      //console.log('imgur',imageUrl);
+
+      return(
+        <div className="adaptiveMedia image is-505x508">
+          <img src={imageUrl}/>
+        </div>
+
+      )
+    }else{
+      return null
+    }
+
+
+
+  },
   determineDateFormat: function (date) {
     let currentDate = Date.now();
     let tweetDate = Date.parse(date);
@@ -16,12 +35,14 @@ const TweetCard = React.createClass({
     //TODO Refactor code, find a way of calculating to year end date rather than exactly a year before today
   },
   render: function () {
+    let image = this.processImages(this.props.tweet);
+    console.log('comp',image)
    return(
      <div className="tweetCard">
        <article className="media">
          <figure className="media-left">
-           <p className="image is-64x64">
-             <img src="http://placehold.it/128x128"/>
+           <p className="image is-48x48">
+             <img className="tweetCardProfileImage" src={this.props.tweet.user.profile_image_url}/>
            </p>
          </figure>
          <div className="media-content">
@@ -32,6 +53,7 @@ const TweetCard = React.createClass({
                <br/>
                {this.props.tweet.text}
              </p>
+             {image}
            </div>
            <nav className="level">
              <div className="level-left">
@@ -40,11 +62,11 @@ const TweetCard = React.createClass({
                </a>
                <a className="level-item">
                  <span className="icon is-small"><i className="fa fa-retweet"></i></span>
-                 {this.props.tweet.retweet_count}
+                 <span className="tweetCardCounter" >{this.props.tweet.retweet_count}</span>
                </a>
                <a className="level-item">
                  <span className="icon is-small"><i className="fa fa-heart"></i></span>
-                 {this.props.tweet.favorite_count}
+                  <span className="tweetCardCounter">{this.props.tweet.favorite_count}</span>
                </a>
              </div>
            </nav>
