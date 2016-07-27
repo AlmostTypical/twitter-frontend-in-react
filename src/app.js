@@ -5,7 +5,7 @@ const axios = require(('axios'));
 const TrendsDiv = require('./components/TrendsDiv');
 const NavBar = require('./components/NavBar');
 const ProfileCard =  require('./components/ProfileCard');
-const TimeLine = require('./components/Timeline');
+const TimeLineDiv = require('./components/TimelineDiv');
 const WhoToFollow = require('./components/WhoToFollow');
 const SideFoot = require('./components/SideFoot');
 
@@ -33,7 +33,7 @@ const App = React.createClass({
             <TrendsDiv />
           </div>
           <div className="column is-half">
-            <TimeLine/>
+            <TimeLineDiv/>
           </div>
           <div className="column is-one-quarter">
             <WhoToFollow/>

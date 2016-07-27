@@ -44,34 +44,39 @@ const ProfileCard = React.createClass({
 
     let info = this.state.profileData
 
-    if(this.state.loading){
+    if (this.state.loading) {
 
-      return(
+      return (
         <h1>Loading</h1>
       )
 
-    }else{
+    } else {
       return (
         <div className="profileCard panel">
 
           <div className="panel-heading has-text-centered ">
             <img src={info.banner}/>
           </div>
-            <img src={info.profilePic}/>
-            <h2>{info.userName}</h2>
-            <p>@{info.handle}</p>
+          <img src={info.profilePic}/>
+          <h2>{info.userName}</h2>
+          <p>@{info.handle}</p>
           <div>
             <table>
+              <thead>
               <tr>
                 <th>Tweet</th>
                 <th>Following</th>
                 <th>Followers</th>
               </tr>
+              </thead>
+
+              <tbody>
               <tr>
                 <td>{info.tweetCount}</td>
                 <td>{info.followingCount}</td>
                 <td>{info.followerCount}</td>
               </tr>
+              </tbody>
             </table>
           </div>
 

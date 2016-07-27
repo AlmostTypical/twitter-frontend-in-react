@@ -3,7 +3,7 @@ const React = require('react');
 const NavBar = React.createClass({
   render: function () {
     return (
-      <div className="navBar">
+      <div className="fixedNavBar">
         <nav className="nav">
           <div className="nav-left">
             <a className="nav-item" href="#">
