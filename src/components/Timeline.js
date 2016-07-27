@@ -1,6 +1,8 @@
 const React = require('react');
 const axios = require('axios');
 
+const TweetCard = require('./TweetCard');
+
 const TimeLine = React.createClass({
 
   getInitialState: function () {
@@ -16,7 +18,7 @@ const TimeLine = React.createClass({
     axios('https://protected-oasis-31937.herokuapp.com/tweets')
       .then(function (response) {
         //console.log('all tweets',response)
-        let tweets = self.extractTweetData(response.data)
+        self.extractTweetData(response.data)
       });
   },
   extractTweetData: function (users) {
@@ -25,19 +27,46 @@ const TimeLine = React.createClass({
 
     let tweets = users.reduce(function (mem,cur) {
       return mem.concat(cur.tweets)
-    },[]);
+    },[]).sort(function (a,b) {
+      return Date.parse(b.created_at) - Date.parse(a.created_at);
+    });
+
+    this.setState({
+      tweets: tweets,
+      loading: false
+    });
 
     console.log('tweets',tweets)
 
   },
   render: function () {
-    return(
-      <div className="profileCard panel">
-        <ul>
-          <li>hello</li>
-        </ul>
-      </div>
-    )
+
+    if(this.state.loading){
+      return(
+        <div className="profileCard panel">
+          <ul>
+            <li>loading...</li>
+          </ul>
+        </div>
+      )
+    }else{
+      return(
+        <div className="profileCard panel">
+          <ul>
+            {
+              this.state.tweets.map(function (tweet ,index) {
+                return (
+                  <li key={index}>
+                    <TweetCard/>
+                  </li>
+                )
+              })
+            }
+          </ul>
+        </div>
+      )
+    }
+
   }
 });
 

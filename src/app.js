@@ -13,7 +13,7 @@ const App = React.createClass({
   getInitialState: function () {
     return ({
       loading: true,
-      currentUser: 'northcoders'
+      currentUser: 'chrishealdphoto'
     })
   },
 
