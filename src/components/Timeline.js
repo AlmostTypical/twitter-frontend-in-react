@@ -52,7 +52,7 @@ const TimeLine = React.createClass({
               <span className="sr-only">Loading...</span>
         </div>
       )
-    }else{
+    } else {
       return(
         <div className="profileCard ">
           <ul>
@@ -69,7 +69,6 @@ const TimeLine = React.createClass({
         </div>
       )
     }
-
   }
 });
 

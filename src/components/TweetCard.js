@@ -2,6 +2,15 @@ const React = require('react');
 const relativeDate = require('relative-date');
 
 const TweetCard = React.createClass({
+  getInitialState: function () {
+    return ({
+      showModal: false
+    })
+  },
+  toggleModal: function () {
+    let toggled = !this.state.showModal;
+    this.setState({showModal: toggled})
+  },
   propTypes: {
     tweet: React.PropTypes.object
   },
@@ -9,13 +18,20 @@ const TweetCard = React.createClass({
     let words = text.split(' ');
     let hashPattern = /#[\w\d]+[a-zA-Z]+[\w\d]+/;
     let mentionPattern = /@[\w\d]+[a-zA-Z]+[\w\d]+/;
+    let urlPattern = 'http://';
     let processed =  words.map(function (word) {
-      if(hashPattern.test(word) || mentionPattern.test(word)){
-        let url = 'https://twitter.com/hashtag/' + word.slice(1);
-        console.log('url',url);
-        return (
-          [<a href={url}>{word}</a>, ' ']
-        )
+      if(hashPattern.test(word) || mentionPattern.test(word) || word.startsWith('http')){
+        if (word.startsWith('http')) {
+          return (
+            [<a href={word}>{word}</a>, ' ']
+          )
+        } else {
+          let url = 'https://twitter.com/hashtag/' + word.slice(1);
+          console.log('url', url);
+          return (
+            [<a href={url}>{word}</a>, ' ']
+          )
+        }
       }else{
         return word + ' '
       }
@@ -57,10 +73,48 @@ const TweetCard = React.createClass({
   render: function () {
     let image = this.processImages(this.props.tweet);
     let text = this.processText(this.props.tweet.text);
-    console.log('comp',image)
-   return(
+    console.log('comp',image);
+    let modal = this.state.showModal
+      ? <div className="modal is-active" onClick={this.toggleModal}>
+          <div className="modal-background"></div>
+            <div className="modal-container">
+              <div className="modal-content tweetModal">
+                <div className="card">
+                  <div className="card-image">
+                    <figure className="image is-4by3">
+                      {image}
+                    </figure>
+                  </div>
+                  <div className="card-content">
+                    <div className="media">
+                      <div className="media-left">
+                        <figure className="image">
+                          <img src={this.props.tweet.user.profile_image_url} alt="Image"/>
+                        </figure>
+                      </div>
+                      <div className="media-content">
+                        <p className="title is-5">John Smith</p>
+                        <p className="subtitle is-6">@johnsmith</p>
+                      </div>
+                    </div>
+
+                    <div className="content">
+                      {text}
+                      <br></br>
+                        <small>{this.determineDateFormat(this.props.tweet.created_at)}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button className="modal-close"></button>
+        </div>
+      : null;
+
+    return(
      <div className="tweetCard">
-       <article className="media">
+       {modal}
+       <article className="media" onClick={this.toggleModal}>
          <figure className="media-left">
            <p className="image is-48x48">
              <img className="tweetCardProfileImage" src={this.props.tweet.user.profile_image_url}/>
