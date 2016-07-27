@@ -23,7 +23,7 @@ const TimeLine = React.createClass({
   },
   extractTweetData: function (users) {
 
-    console.log('users', users)
+    // console.log('users', users);
 
     let tweets = users.reduce(function (mem,cur) {
       return mem.concat(cur.tweets)
@@ -36,7 +36,7 @@ const TimeLine = React.createClass({
       loading: false
     });
 
-    console.log('tweets',tweets)
+    // console.log('tweets',tweets)
 
   },
   render: function () {
@@ -57,7 +57,7 @@ const TimeLine = React.createClass({
               this.state.tweets.map(function (tweet ,index) {
                 return (
                   <li key={index}>
-                    <TweetCard/>
+                    <TweetCard tweet={tweet}/>
                   </li>
                 )
               })

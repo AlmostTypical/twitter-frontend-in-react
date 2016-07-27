@@ -25,7 +25,9 @@
   },
   "dependencies": {
     "axios": "^0.13.1",
+    "date-since": "^1.0.0",
     "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.2.1",
+    "relative-date": "^1.1.3"
   }
 }
