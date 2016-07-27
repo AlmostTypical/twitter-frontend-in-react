@@ -43,10 +43,13 @@ const TimeLine = React.createClass({
 
     if(this.state.loading){
       return(
-        <div className="profileCard panel">
-          <ul>
-            <li>loading...</li>
-          </ul>
+        <div className="profileCard panel has-text-centered">
+              <i className="fa fa-cog fa-spin fa-3x fa-fw"></i>
+              <span className="sr-only">Loading...</span>
+              <i className="fa fa-cog fa-spin-reverse fa-3x fa-fw "></i>
+              <span className="sr-only">Loading...</span>
+              <i className="fa fa-cog fa-spin fa-3x fa-fw"></i>
+              <span className="sr-only">Loading...</span>
         </div>
       )
     }else{

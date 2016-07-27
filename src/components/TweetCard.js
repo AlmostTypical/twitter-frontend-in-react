@@ -2,6 +2,26 @@ const React = require('react');
 const relativeDate = require('relative-date');
 
 const TweetCard = React.createClass({
+  propTypes: {
+    tweet: React.PropTypes.object
+  },
+  processText: function (text) {
+    let words = text.split(' ');
+    let hashPattern = /#[\w\d]+[a-zA-Z]+[\w\d]+/;
+    let mentionPattern = /@[\w\d]+[a-zA-Z]+[\w\d]+/;
+    let processed =  words.map(function (word) {
+      if(hashPattern.test(word) || mentionPattern.test(word)){
+        let url = 'https://twitter.com/hashtag/' + word.slice(1);
+        console.log('url',url);
+        return (
+          [<a href={url}>{word}</a>, ' ']
+        )
+      }else{
+        return word + ' '
+      }
+    });
+    return processed
+  },
   processImages: function (tweetData) {
     if(tweetData.entities.media !== undefined){
       let imageUrl  = tweetData.entities.media[0].media_url;
@@ -36,6 +56,7 @@ const TweetCard = React.createClass({
   },
   render: function () {
     let image = this.processImages(this.props.tweet);
+    let text = this.processText(this.props.tweet.text);
     console.log('comp',image)
    return(
      <div className="tweetCard">
@@ -51,7 +72,7 @@ const TweetCard = React.createClass({
                <strong>{this.props.tweet.user.name}</strong> <small>@{this.props.tweet.user.screen_name}</small>
                <small> - {this.determineDateFormat(this.props.tweet.created_at)}</small>
                <br/>
-               {this.props.tweet.text}
+               {text}
              </p>
              {image}
            </div>
