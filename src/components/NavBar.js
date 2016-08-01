@@ -3,7 +3,7 @@ const React = require('react');
 const NavBar = React.createClass({
   render: function () {
     return (
-        <div className="fixedNavBar">
+        <div className="fixedNavBar item-background">
           <nav className="nav">
             <div className="nav-left">
               <a className="nav-item" href="#">
@@ -32,9 +32,6 @@ const NavBar = React.createClass({
               <span></span>
             </span>
             <div className="nav-right nav-menu">
-              <figure className=" nav-item image is-150x150">
-                <img src="http://placehold.it/32x32"/>
-              </figure>
               <span className="nav-item">
                 <a className="button">
                   <span className="icon">

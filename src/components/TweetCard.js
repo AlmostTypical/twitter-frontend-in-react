@@ -41,21 +41,14 @@ const TweetCard = React.createClass({
   processImages: function (tweetData) {
     if(tweetData.entities.media !== undefined){
       let imageUrl  = tweetData.entities.media[0].media_url;
-
-      //console.log('imgur',imageUrl);
-
       return(
         <div className="adaptiveMedia image is-505x508">
           <img src={imageUrl}/>
         </div>
-
       )
     }else{
       return null
     }
-
-
-
   },
   determineDateFormat: function (date) {
     let currentDate = Date.now();
@@ -79,32 +72,7 @@ const TweetCard = React.createClass({
           <div className="modal-background"></div>
             <div className="modal-container">
               <div className="modal-content tweetModal">
-                <div className="card">
-                  <div className="card-image">
-                    <figure className="image is-4by3">
-                      {image}
-                    </figure>
-                  </div>
-                  <div className="card-content">
-                    <div className="media">
-                      <div className="media-left">
-                        <figure className="image">
-                          <img src={this.props.tweet.user.profile_image_url} alt="Image"/>
-                        </figure>
-                      </div>
-                      <div className="media-content">
-                        <p className="title is-5">John Smith</p>
-                        <p className="subtitle is-6">@johnsmith</p>
-                      </div>
-                    </div>
-
-                    <div className="content">
-                      {text}
-                      <br></br>
-                        <small>{this.determineDateFormat(this.props.tweet.created_at)}</small>
-                    </div>
-                  </div>
-                </div>
+                {image}
               </div>
             </div>
             <button className="modal-close"></button>
@@ -112,7 +80,7 @@ const TweetCard = React.createClass({
       : null;
 
     return(
-     <div className="tweetCard">
+     <div className="tweetCard item-background">
        {modal}
        <article className="media" onClick={this.toggleModal}>
          <figure className="media-left">
@@ -123,8 +91,8 @@ const TweetCard = React.createClass({
          <div className="media-content">
            <div className="content">
              <p>
-               <strong>{this.props.tweet.user.name}</strong> <small>@{this.props.tweet.user.screen_name}</small>
-               <small> - {this.determineDateFormat(this.props.tweet.created_at)}</small>
+               <strong>{this.props.tweet.user.name}</strong> <small className="tweet-handle">@{this.props.tweet.user.screen_name}</small>
+               <small className="tweet-handle"> - {this.determineDateFormat(this.props.tweet.created_at)}</small>
                <br/>
                {text}
              </p>
@@ -132,14 +100,14 @@ const TweetCard = React.createClass({
            </div>
            <nav className="level">
              <div className="level-left">
-               <a className="level-item">
+               <a className="level-item tweetBar">
                  <span className="icon is-small"><i className="fa fa-reply"></i></span>
                </a>
-               <a className="level-item">
+               <a className="level-item tweetBar">
                  <span className="icon is-small"><i className="fa fa-retweet"></i></span>
                  <span className="tweetCardCounter" >{this.props.tweet.retweet_count}</span>
                </a>
-               <a className="level-item">
+               <a className="level-item tweetBar">
                  <span className="icon is-small"><i className="fa fa-heart"></i></span>
                   <span className="tweetCardCounter">{this.props.tweet.favorite_count}</span>
                </a>

@@ -54,7 +54,7 @@ const TimeLine = React.createClass({
       )
     } else {
       return(
-        <div className="profileCard ">
+        <div className="profileCard item-background">
           <ul>
             {
               this.state.tweets.map(function (tweet ,index) {

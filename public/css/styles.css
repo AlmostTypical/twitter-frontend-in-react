@@ -1,3 +1,31 @@
+.footer-item {
+    float: left;
+    display: block;
+    font-size: 12px;
+    line-height: 18px;
+    list-style-position: outside;
+    padding-right: 8px;
+    text-align: start;
+    color: rgb(136, 153, 166);
+}
+
+.footer-box {
+    padding: 10px;
+}
+
+.sidefoot {
+    border: 1px solid rgb(225, 232, 237);
+    border-radius: 6px;
+    display: block;
+}
+
+.background {
+    background-color: rgb(255, 255, 255);
+}
+
+.item-background {
+    background-color: white;
+}
 
 body{
     margin-top: 51px;
@@ -34,15 +62,28 @@ i.fa.fa-twitter {
     max-height: 1000px;
 }
 
+.tweetBar {
+    width: 80px;
+    color: rgb(170, 184, 194);
+}
+
+.tweet-handle {
+    color: rgb(136, 153, 166);
+    font-size: 13px;
+    line-height: 18px;
+}
+
 .tweetCardCounter{
     margin-left: 6px;
 }
 
 .adaptiveMedia{
-    height:505px;
-    width: 508px;
+    max-height:505px;
+    max-width: 508px;
     border-radius: 6px;
     overflow: hidden;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .fa-spin-reverse {

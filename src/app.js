@@ -25,7 +25,7 @@ const App = React.createClass({
       info = undefined;
     }
     return (
-      <div className="container">
+      <div className="container background">
         <NavBar/>
         <div className="columns">
           <div className="column is-one-quarter">

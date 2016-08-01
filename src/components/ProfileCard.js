@@ -50,7 +50,7 @@ const ProfileCard = React.createClass({
 
     } else {
       return (
-        <div className="profileCard">
+        <div className="profileCard item-background">
           <div className="profile-Banner">
             <img className="profile-BannerImg" src={info.banner}/>
           </div>
