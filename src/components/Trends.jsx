@@ -50,7 +50,7 @@ const Trend = React.createClass({
           this.state.trends.map(function (tweet, index) {
             return (
               <div key={index} className="panel-block">
-                <p><strong>{tweet.name}</strong></p>
+                <p className="trend-name">{tweet.name}</p>
                 <p className="trend-count">{tweet.volume.toLocaleString()} Tweets</p>
               </div>
             )

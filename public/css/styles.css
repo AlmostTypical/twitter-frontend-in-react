@@ -15,6 +15,7 @@ i.fa.fa-twitter {
     top:0;
     width:65%;
     height:50px;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .tweetCard{
@@ -209,3 +210,23 @@ i.fa.fa-twitter {
 
 /* ================== TRENDS BAR ================ */
 
+.trend-count {
+    font-size: 13px;
+    color: rgb(136, 153, 166);
+    line-height: 17px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 22px;
+    color: rgb(102, 117, 127);
+}
+
+.trend-name {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 17px;
+    color: rgb(38, 38, 38);
+
+}
