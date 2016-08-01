@@ -8,8 +8,6 @@ const ProfileCard = React.createClass({
     })
   },
   componentDidMount: function () {
-
-    console.log('mountinf')
     this.getUserTweet()
   },
   getUserTweet: function () {
@@ -42,7 +40,7 @@ const ProfileCard = React.createClass({
   },
   render: function () {
 
-    let info = this.state.profileData
+    let info = this.state.profileData;
 
     if (this.state.loading) {
 
@@ -52,40 +50,42 @@ const ProfileCard = React.createClass({
 
     } else {
       return (
-        <div className="profileCard panel">
-
-          <div className="panel-heading has-text-centered ">
-            <img src={info.banner}/>
+        <div className="profileCard">
+          <div className="profile-Banner">
+            <img className="profile-BannerImg" src={info.banner}/>
           </div>
-          <img src={info.profilePic}/>
-          <h2>{info.userName}</h2>
-          <p>@{info.handle}</p>
-          <div>
-            <table>
-              <thead>
-              <tr>
-                <th>Tweet</th>
-                <th>Following</th>
-                <th>Followers</th>
-              </tr>
-              </thead>
-
-              <tbody>
-              <tr>
-                <td>{info.tweetCount}</td>
-                <td>{info.followingCount}</td>
-                <td>{info.followerCount}</td>
-              </tr>
-              </tbody>
-            </table>
+          <div className="profile-Content">
+            <div className="profile-AvatarBox">
+              <img className="profile-AvatarImg" src={info.profilePic}/>
+            </div>
+            <div className="profile-UserFields">
+              <div className="profile-UserFields-NameBox">
+                <p className="profile-UserFields-NameText">{info.userName}</p>
+              </div>
+              <span className="profile-UserFields-HandleBox">
+                <p className="profile-UserFields-HandleText">@{info.handle}</p>
+              </span>
+            </div>
+            <div className="profile-UserStats">
+              <ul className="profile-UserStats-List">
+                <li className="profile-ArrangeSizeFit">
+                  <span className="profile-StatLabel">Tweets</span>
+                  <span className="profile-StatValue">{info.tweetCount}</span>
+                </li>
+                <li className="profile-ArrangeSizeFit">
+                  <span className="profile-StatLabel">Following</span>
+                  <span className="profile-StatValue">{info.followingCount}</span>
+                </li>
+                <li className="profile-ArrangeSizeFit">
+                  <span className="profile-StatLabel">Followers</span>
+                  <span className="profile-StatValue">{info.followerCount}</span>
+                </li>
+              </ul>
+            </div>
           </div>
-
-
         </div>
       )
     }
-
-
   }
 });
 

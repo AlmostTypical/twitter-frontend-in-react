@@ -13,9 +13,7 @@ i.fa.fa-twitter {
 .fixedNavBar{
     position: fixed;
     top:0;
-    left: 0;
-    z-index: 9999;
-    width:100%;
+    width:65%;
     height:50px;
 }
 
@@ -71,6 +69,143 @@ i.fa.fa-twitter {
     }
 }
 
-.tweetModal{
-    
+.profileCard {
+    border-radius: 6px;
+    border: solid 1px rgb(225, 232, 237);
+    color: rgb(41, 47, 51);
+    display: block;
+    margin-bottom: 10px;
+    line-height: 16px
 }
+
+.profile-Content {
+    display: block;
+}
+
+.profile-Banner {
+    height: 95px;
+    margin-left: -1px;
+    margin-top: -1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    width: 288px;
+    tab-index: -1;
+    display: block;
+}
+
+/*-----------PROFILE CARD------------------- */
+
+.profile-BannerImg {
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+.profile-AvatarBox {
+    padding: 1px;
+    vertical-align: bottom;
+    margin-top: -30px;
+    margin-left: 8px;
+    display: inline-block;
+    max-width: 100%;
+    tab-index: -1;
+    border-radius: 6px;
+}
+
+.profile-AvatarImg {
+    width: 72px;
+    height: 72px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    border: solid 2px rgb(255, 255, 255)
+}
+
+.profile-UserFields-NameBox {
+    margin-top: 10px;
+    position: absolute;
+    left: 90px;
+    top: 103px;
+    width: 185px;
+    color: rgb(41, 47, 51);
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 21px;
+    max-width: 100px;
+    text-overflow: ellipsis;
+    word-wrap: normal;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.profile-UserFields {
+
+}
+
+.profile-UserFields-NameText {
+    display: inline;
+
+}
+
+.profile-UserFields-HandleBox {
+    margin: 3px;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: left;
+    direction: ltr;
+    unicode-bidi: embed;
+    display: inline-block;
+}
+
+.profile-UserFields-HandleText {
+    color: rgb(102, 117, 127);
+    direction: ltr;
+    font-size: 12px;
+    padding-right: 5px;
+
+}
+
+.profile-UserStats {
+    margin-left: 11px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 14px;
+    display: block;
+    color: rgb(41, 47, 51);
+}
+
+.profile-UserStats-List {
+    box-sizing: border-box;
+    display: table;
+    list-style-position: outside;
+    min-width: 100px;
+    table-layout: fixed;
+    list-style-type: none;
+}
+
+.profile-ArrangeSizeFit {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-align: start;
+    vertical-align: bottom;
+    width: 78%;
+    line-height: 14px;
+    display: table-cell;
+}
+
+.profile-StatLabel {
+    text-transform: uppercase;
+    line-height: 10px;
+    display: block;
+    font-size: 10px;
+    color: rgb(136, 153, 166);
+}
+
+.profile-StatValue {
+    color: rgb(38, 38, 38);
+    display: block;
+    font-size: 18px;
+    padding-top: 3px;
+    font-weight: 500;
+}
+
+/* ================== TRENDS BAR ================ */
+
